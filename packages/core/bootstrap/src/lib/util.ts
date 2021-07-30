@@ -123,6 +123,16 @@ export const getRequiredEnv = (name: string, prefix = ''): string => {
   return val
 }
 
+// format input as an array regardless of if it is a string or an array already
+export const formatArray = (input: string | string[]): string[] => {
+  let result = []
+  if(typeof(input)==='string')
+      result.push(input)
+  else
+      result = input
+  return result
+}
+
 /**
  * @description
  * Takes an Array<V>, and a grouping function,

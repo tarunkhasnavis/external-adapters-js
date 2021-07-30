@@ -1,5 +1,5 @@
 import { ExecuteWithConfig, Config, ExecuteFactory, AdapterRequest, AxiosResponse } from '@chainlink/types'
-import { Requester, Validator } from '@chainlink/ea-bootstrap'
+import { Requester, Validator, util } from '@chainlink/ea-bootstrap'
 import { makeConfig, NAME } from './config'
 
 export const batchablePropertyPath = ['from', 'to']
@@ -43,8 +43,8 @@ export const execute: ExecuteWithConfig<Config> = async (request, _, config) => 
   const to = (validator.validated.data.to || '')
   const pairArray = []
   console.log(to)
-  for (const fromCurrency of formatArray(symbol)) {
-    for (const toCurrency of formatArray(to)) {
+  for (const fromCurrency of util.formatArray(symbol)) {
+    for (const toCurrency of util.formatArray(to)) {
       pairArray.push(`${fromCurrency.toUpperCase() + toCurrency.toUpperCase()}`)
     }
   }
@@ -65,14 +65,4 @@ export const execute: ExecuteWithConfig<Config> = async (request, _, config) => 
 
 export const makeExecute: ExecuteFactory<Config> = (config) => {
   return async (request, context) => execute(request, context, config || makeConfig())
-}
-
-// format input as an array regardless of if it is a string or an array already
-function formatArray(input: string | string[]) {
-  let result = []
-  if(typeof(input)==='string')
-      result.push(input)
-  else
-      result = input
-  return result
 }
