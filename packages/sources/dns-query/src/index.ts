@@ -4,4 +4,6 @@ import { makeConfig } from './config'
 
 const NAME = 'DNS_Query'
 
-export = { NAME, makeConfig, makeExecute, ...expose(NAME, makeExecute()) }
+const { server } = expose(NAME, makeExecute())
+
+export { NAME, makeConfig, makeExecute, server }

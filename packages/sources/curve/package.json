@@ -1,6 +1,6 @@
 {
   "name": "@chainlink/curve-adapter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Chainlink curve adapter.",
   "keywords": [
     "Chainlink",

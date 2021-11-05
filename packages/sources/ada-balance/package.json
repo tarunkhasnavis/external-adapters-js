@@ -1,6 +1,6 @@
 {
   "name": "@chainlink/ada-balance-adapter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Chainlink ada-balance adapter.",
   "keywords": [
     "Chainlink",

@@ -3,6 +3,9 @@ import * as dxfeed from '@chainlink/dxfeed-adapter'
 import { makeConfig, NAME } from './config'
 
 const makeExecute = dxfeed.makeExecute
+
 const { server } = expose(NAME, makeExecute(), dxfeed.makeWSHandler(), dxfeed.endpointSelector)
 
-export { NAME, makeExecute, makeConfig, server }
+const endpoints = dxfeed.endpoints
+
+export { NAME, endpoints, makeExecute, makeConfig, server }

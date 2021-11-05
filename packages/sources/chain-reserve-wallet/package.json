@@ -1,6 +1,6 @@
 {
   "name": "@chainlink/chain-reserve-wallet-adapter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Chainlink chain-reserve-wallet adapter.",
   "keywords": [
     "Chainlink",
