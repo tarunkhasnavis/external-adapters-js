@@ -1,9 +1,10 @@
 import { expose } from '@chainlink/ea-bootstrap'
-import { makeExecute } from './adapter'
+import { makeExecute } from './endpoint'
+import { makeEndpointSelector } from './adapter'
 import { makeConfig } from './config'
 import * as types from './types'
 
 const NAME = 'Token-Allocation'
-const handlers = expose(NAME, makeExecute())
+const { server } = expose(NAME, makeExecute())
 
-export { NAME, types, makeExecute, makeConfig, handlers }
+export { NAME, types, makeExecute, makeConfig, server, makeEndpointSelector }

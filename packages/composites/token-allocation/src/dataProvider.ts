@@ -1,6 +1,6 @@
 import { Requester } from '@chainlink/ea-bootstrap'
 import { RequestConfig } from '@chainlink/types'
-import { ResponsePayload } from './types'
+import { ResponsePayload, GetPrices } from './types'
 import { Logger } from '@chainlink/ea-bootstrap'
 
 /**
@@ -25,13 +25,18 @@ import { Logger } from '@chainlink/ea-bootstrap'
  */
 
 export const getPriceProvider =
-  (source: string, jobRunID: string, apiConfig: RequestConfig) =>
-  async (symbols: string[], quote: string, withMarketCap = false): Promise<ResponsePayload> => {
+  (source: string, jobRunID: string, apiConfig: RequestConfig): GetPrices =>
+  async (symbols, quote, additionalInput, withMarketCap = false): Promise<ResponsePayload> => {
     const results = await Promise.all(
       symbols.map(async (base) => {
         const data = {
           id: jobRunID,
-          data: { base, quote, endpoint: withMarketCap ? 'marketcap' : 'crypto' },
+          data: {
+            ...additionalInput,
+            base,
+            quote,
+            endpoint: withMarketCap ? 'marketcap' : 'crypto',
+          },
         }
         try {
           const response = await Requester.request({ ...apiConfig, data: data })
