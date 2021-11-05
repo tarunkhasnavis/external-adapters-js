@@ -9,7 +9,7 @@ export type Config = types.Config & {
 export const DEFAULT_CONTROLLER_ADDRESS = '0xa4F1671d3Aee73C05b552d57f2d16d3cfcBd0217'
 export const DEFAULT_ENDPOINT = 'tvl'
 
-export const makeConfig = (prefix?: string): Config => {
+export const makeConfig: types.ConfigFactory<Config> = (prefix) => {
   return {
     ...Requester.getDefaultConfig(prefix),
     rpcUrl: util.getRequiredEnv('RPC_URL', prefix),

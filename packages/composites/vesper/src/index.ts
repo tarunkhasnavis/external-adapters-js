@@ -4,9 +4,6 @@ import { makeConfig } from './config'
 
 const NAME = 'VESPER'
 
-export = {
-  NAME,
-  makeConfig,
-  makeExecute,
-  ...expose(NAME, makeExecute(), undefined, endpointSelector),
-}
+const { server } = expose(NAME, makeExecute(), undefined, endpointSelector)
+
+export { NAME, makeConfig, makeExecute, server }
