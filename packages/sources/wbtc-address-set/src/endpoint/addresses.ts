@@ -1,5 +1,5 @@
 import { Requester, Validator } from '@chainlink/ea-bootstrap'
-import { ExecuteWithConfig } from '@chainlink/types'
+import { Account, ExecuteWithConfig } from '@chainlink/types'
 import { Config } from '../config'
 
 export const supportedEndpoints = ['addresses']
