@@ -3354,7 +3354,7 @@ __metadata:
     "@types/node": 14.17.34
     cids: ^1.1.8
     ipfs: ^0.60.0
-    ipfs-core-types: ^0.7.1
+    ipfs-core-types: ^0.8.0
     ipfs-http-client: ^52.0.3
     ipld-dag-cbor: ^1.0.1
     multiformats: ^9.4.1
@@ -15764,7 +15764,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"ipfs-core-types@npm:^0.8.4":
+"ipfs-core-types@npm:^0.8.0, ipfs-core-types@npm:^0.8.4":
   version: 0.8.4
   resolution: "ipfs-core-types@npm:0.8.4"
   dependencies:
