@@ -37,6 +37,7 @@
     "@chainlink/amberdata-adapter": "workspace:*",
     "@chainlink/anyblock-adapter": "workspace:*",
     "@chainlink/ap-election-adapter": "workspace:*",
+    "@chainlink/balance-adapter": "workspace:*",
     "@chainlink/bea-adapter": "workspace:*",
     "@chainlink/binance-adapter": "workspace:*",
     "@chainlink/binance-dex-adapter": "workspace:*",

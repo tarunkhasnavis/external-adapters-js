@@ -1925,6 +1925,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@chainlink/balance-adapter@workspace:*, @chainlink/balance-adapter@workspace:packages/sources/balance":
+  version: 0.0.0-use.local
+  resolution: "@chainlink/balance-adapter@workspace:packages/sources/balance"
+  dependencies:
+    "@chainlink/ea-bootstrap": "workspace:*"
+    "@chainlink/ea-test-helpers": "workspace:*"
+    "@chainlink/types": "workspace:*"
+    "@types/jest": 27.0.3
+    "@types/node": 14.17.34
+    tslib: ^2.3.1
+    typescript: 4.3.5
+  languageName: unknown
+  linkType: soft
+
 "@chainlink/bea-adapter@workspace:*, @chainlink/bea-adapter@workspace:packages/sources/bea":
   version: 0.0.0-use.local
   resolution: "@chainlink/bea-adapter@workspace:packages/sources/bea"
@@ -2889,6 +2903,7 @@ __metadata:
     "@chainlink/amberdata-adapter": "workspace:*"
     "@chainlink/anyblock-adapter": "workspace:*"
     "@chainlink/ap-election-adapter": "workspace:*"
+    "@chainlink/balance-adapter": "workspace:*"
     "@chainlink/bea-adapter": "workspace:*"
     "@chainlink/binance-adapter": "workspace:*"
     "@chainlink/binance-dex-adapter": "workspace:*"

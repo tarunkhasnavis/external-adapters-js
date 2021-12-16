@@ -199,6 +199,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/sources/ap-election"
       },
       {
+        "name": "@chainlink/balance-adapter",
+        "reference": "workspace:packages/sources/balance"
+      },
+      {
         "name": "@chainlink/bea-adapter",
         "reference": "workspace:packages/sources/bea"
       },
@@ -670,6 +674,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@chainlink/ap-election-adapter", ["workspace:packages/sources/ap-election"]],
       ["@chainlink/apy-finance-adapter", ["workspace:packages/composites/apy-finance"]],
       ["@chainlink/augur-adapter", ["workspace:packages/composites/augur"]],
+      ["@chainlink/balance-adapter", ["workspace:packages/sources/balance"]],
       ["@chainlink/bea-adapter", ["workspace:packages/sources/bea"]],
       ["@chainlink/binance-adapter", ["workspace:packages/sources/binance"]],
       ["@chainlink/binance-dex-adapter", ["workspace:packages/sources/binance-dex"]],
@@ -4114,6 +4119,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@chainlink/balance-adapter", [
+        ["workspace:packages/sources/balance", {
+          "packageLocation": "./packages/sources/balance/",
+          "packageDependencies": [
+            ["@chainlink/balance-adapter", "workspace:packages/sources/balance"],
+            ["@chainlink/ea-bootstrap", "workspace:packages/core/bootstrap"],
+            ["@chainlink/ea-test-helpers", "workspace:packages/core/test-helpers"],
+            ["@chainlink/types", "workspace:packages/core/types/@chainlink"],
+            ["@types/jest", "npm:27.0.3"],
+            ["@types/node", "npm:14.17.34"],
+            ["tslib", "npm:2.3.1"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@chainlink/bea-adapter", [
         ["workspace:packages/sources/bea", {
           "packageLocation": "./packages/sources/bea/",
@@ -5043,6 +5064,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chainlink/amberdata-adapter", "workspace:packages/sources/amberdata"],
             ["@chainlink/anyblock-adapter", "workspace:packages/sources/anyblock"],
             ["@chainlink/ap-election-adapter", "workspace:packages/sources/ap-election"],
+            ["@chainlink/balance-adapter", "workspace:packages/sources/balance"],
             ["@chainlink/bea-adapter", "workspace:packages/sources/bea"],
             ["@chainlink/binance-adapter", "workspace:packages/sources/binance"],
             ["@chainlink/binance-dex-adapter", "workspace:packages/sources/binance-dex"],

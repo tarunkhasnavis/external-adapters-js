@@ -129,6 +129,9 @@
       "path": "./sources/ap-election"
     },
     {
+      "path": "./sources/balance"
+    },
+    {
       "path": "./sources/bea"
     },
     {

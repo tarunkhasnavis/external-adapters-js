@@ -6,6 +6,7 @@ import * as alphavantage from '@chainlink/alphavantage-adapter'
 import * as amberdata from '@chainlink/amberdata-adapter'
 import * as anyblock from '@chainlink/anyblock-adapter'
 import * as ap_election from '@chainlink/ap-election-adapter'
+import * as balance from '@chainlink/balance-adapter'
 import * as bea from '@chainlink/bea-adapter'
 import * as binance from '@chainlink/binance-adapter'
 import * as binance_dex from '@chainlink/binance-dex-adapter'
@@ -125,6 +126,7 @@ export default {
   amberdata,
   anyblock,
   ap_election,
+  balance,
   bea,
   binance,
   binance_dex,
