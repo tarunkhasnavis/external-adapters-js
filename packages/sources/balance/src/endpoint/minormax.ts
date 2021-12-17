@@ -1,5 +1,5 @@
 import { Requester, Validator } from '@chainlink/ea-bootstrap'
-import { Config, ExecuteWithConfig, InputParameters } from '@chainlink/types'
+import { AxiosResponse, Config, ExecuteWithConfig, InputParameters } from '@chainlink/types'
 
 // This should be filled in with a lowercase name corresponding to the API endpoint
 export const supportedEndpoints = ['minormax']
@@ -35,22 +35,35 @@ export const execute: ExecuteWithConfig<Config> = async (request, _, config) => 
 
   const response = await Requester.request<Array<ResponseSchema>>(options, customError)
 
-  let result: number
+  let result: string
   if (mom === 'MIN') {
-    let min: number = Number.MAX_SAFE_INTEGER
+    let min: ResponseSchema = {
+      address: '0',
+      balance: Number.MAX_SAFE_INTEGER,
+    }
     response.data.forEach((element) => {
-      min = element.balance < min ? element.balance : min
+      min = element.balance < min.balance ? element : min
     })
-    result = min
+    result = min.address
   } else if (mom === 'MAX') {
-    let max: number = Number.MIN_SAFE_INTEGER
+    let max: ResponseSchema = {
+      address: '0',
+      balance: Number.MIN_SAFE_INTEGER,
+    }
     response.data.forEach((element) => {
-      max = element.balance > max ? element.balance : max
+      max = element.balance > max.balance ? element : max
     })
-    result = max
+    result = max.address
   } else {
     throw new Error('Invalid parameter value')
   }
 
-  return Requester.success(jobRunID, Requester.withResult(response, result), config.verbose)
+  const endpointResponse: Partial<AxiosResponse> = {
+    data: {
+      data: response.data,
+      result,
+    },
+  }
+
+  return Requester.success(jobRunID, endpointResponse, config.verbose)
 }

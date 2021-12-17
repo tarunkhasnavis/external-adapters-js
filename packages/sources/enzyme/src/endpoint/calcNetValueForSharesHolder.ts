@@ -1,7 +1,7 @@
 import { Requester, Validator } from '@chainlink/ea-bootstrap'
 import { ExecuteWithConfig, InputParameters } from '@chainlink/types'
 import { Config } from '../config'
-import { ethers, BigNumber } from 'ethers'
+import { Web3 } from 'web3'
 import FundValueCalculatorABI from '../abis/FundValueCalculator.json'
 
 export const supportedEndpoints = ['calcNetValueForSharesHolder']

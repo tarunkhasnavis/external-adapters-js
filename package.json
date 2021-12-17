@@ -41,8 +41,10 @@
     "@vercel/ncc": "0.29.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
+    "ethers": "^5.5.2",
     "jest": "27.3.1",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "web3": "^1.6.1"
   },
   "devDependencies": {
     "@types/babel__core": "7.1.16",

@@ -1,5 +1,5 @@
 import { Requester, Validator } from '@chainlink/ea-bootstrap'
-import { Config, ExecuteWithConfig, InputParameters } from '@chainlink/types'
+import { AxiosResponse, Config, ExecuteWithConfig, InputParameters } from '@chainlink/types'
 
 // This should be filled in with a lowercase name corresponding to the API endpoint
 export const supportedEndpoints = ['balance']
@@ -38,5 +38,12 @@ export const execute: ExecuteWithConfig<Config> = async (request, _, config) => 
   })
   const result: number = totalBalance
 
-  return Requester.success(jobRunID, Requester.withResult(response, result), config.verbose)
+  const endpointResponse: Partial<AxiosResponse> = {
+    data: {
+      data: response.data,
+      result,
+    },
+  }
+
+  return Requester.success(jobRunID, endpointResponse, config.verbose)
 }
